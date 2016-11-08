@@ -21,6 +21,7 @@
     <%= image_tag("WoodFloor002.jpg", :id =>"Wood-floor") %>
     <%= image_tag("Stone001.jpg", :id => "Stone-wall") %>
     <%= image_tag("sky1.jpg", :id => "sky") %>
+    <%= image_tag("Sand001.jpg", :id => "Sand") %>
   </a-assets>
   
   <!-- Adding a camera that can "click" -->
@@ -34,12 +35,14 @@
       </a-ring>
     </a-camera>
   </a-entity>
-
-  <a-entity geometry="primitive:box" position="0 3.35 -7.4" draw="width: 850; height: 1100" scale="3.375 4.5 .1" htmltexture="asset:#hello"></a-entity>
   
   <!-- The room for the links -->
-  <a-entity position="0 0 0" name="Room (1)">
-    <a-box position="0 0 0" scale="15 0.1 15" name="Floor" material="shader: standard; metalness: 0; repeat: 5 5; src: #Wood-floor"></a-box>
+  <a-entity position="0 0 0" name="Walkable Area">
+
+    <a-sphere position="0 0 0" scale="1 15 15" name="Floor" material="shader:standard;metalness:0;repeat:5 5;src:#Sand" geometry="primitive:sphere" rotation="0 0 90"></a-sphere>
+
+    <!-- The welcome message -->
+    <a-entity geometry="primitive:box" position="0 3.35 -7.4" draw="width: 850; height: 1100" scale="3.375 4.5 .1" htmltexture="asset:#hello"></a-entity>
     
     <!-- for the Home page -->
     <a-box position="7.5 3 0" scale="4 5 0.2" rotation="0 -90 0" name="Page (1)" color="#FFFFFF" material="shader: flat; metalness: 0" href="http://www.nateliason.com">
@@ -58,8 +61,10 @@
 
   </a-entity>
 
-  <a-sky src="#sky"></a-sky> <!-- Thank you http://www.digitalafter.com/ for the sky! -->
+  <a-ocean width="200" depth="200" density="40" opacity="1" position="0 -0.4 0"></a-ocean>
 
-  <a-light name="AmbientLight" type="ambient" color="#363942" intensity="1"></a-light>
-  <a-light name="Centerlight" type="point" color="#FFFFFF" intensity=".5" position="0 2 0"></a-light>
+  <a-sky src="#sky" position="0 -200 0"></a-sky> <!-- Thank you http://www.digitalafter.com/ for the sky! -->
+
+  <a-light name="AmbientLight" type="ambient" color="#363942" intensity="1" position="0 2 0"></a-light>
+  <a-light name="Centerlight" type="point" color="#FFFFFF" intensity=".8" position="0 10 0"></a-light>
 </a-scene>
