@@ -4,16 +4,14 @@
     <div id="hello">
       <h2>Welcome!</h2> 
       <p>If this is your first time here, this is an experiment in VR Blogging, and one of the first blog home pages re-created in VR.</p> 
-      <p><b>Controls:</b> On a computer, you can click and drag to look around, and move with the WASD keys. On your Android phone, you can just look around, and maybe move if you have a controller. If you're fancy and have a Vive or Oculus, you should be able to move around as you expect to.</p> 
+      <p>To go to any link, just look at the orb next to it. Look at that Twitter orb to find me on Twitter.</p> 
       <p>For now, this just links to the main parts of my site. The blog, the book lessons, the newsletter, and the homepage. But check back in the future as I have a lot of ideas for how it can be expanded :)</p> 
       <p>- Nat</p>
     </div>
-    <div id="Home">
-      <h2 style="text-align: center">Visit Nateliason.com</h2>
+    <div id="Home" style="opacity: 0;">
+      <h2 style="text-align: center; font-size: 72px;">Visit Nateliason.com</h2>
     </div>
-    <div id="Lessons">
-      <h2 style="text-align: center">Visit The Book Lessons</h2>
-    </div>
+    <h2 id="Lessons" style="text-align: center">Visit The Book Lessons</h2>
     <div id="Blog">
       <h2 style="text-align: center">Visit The Blog</h2>
     </div>
@@ -22,10 +20,12 @@
     <%= image_tag("Stone001.jpg", :id => "Stone-wall") %>
     <%= image_tag("sky1.jpg", :id => "sky") %>
     <%= image_tag("Sand001.jpg", :id => "Sand") %>
+    <%= image_tag("twitter4.jpg", :id => "Twitter") %>
+    <%= image_tag("BlogPortal.png", :id => "BlogPortal") %>
   </a-assets>
   
   <!-- Adding a camera that can "click" -->
-  <a-entity position="0 2 0">
+  <a-entity position="0 2 0" rotation="0 90 0">
     <a-camera id="camera" look-controls wasd-controls>
       <!-- <a-cursor color="#4CC3D9"></a-cursor> -->
       <a-ring radius-outer="0.03" radius-inner="0.02"
@@ -45,14 +45,28 @@
     <a-entity geometry="primitive:box" position="0 3.35 -7.4" draw="width: 850; height: 1100" scale="3.375 4.5 .1" htmltexture="asset:#hello"></a-entity>
     
     <!-- for the Home page -->
-    <a-box position="7.5 3 0" scale="4 5 0.2" rotation="0 -90 0" name="Page (1)" color="#FFFFFF" material="shader: flat; metalness: 0" href="http://www.nateliason.com">
-      <a-entity geometry="primitive:box" position="0 0 1" draw="width: 900; height: 300" scale=".9 .25 .1" htmltexture="asset:#Home"></a-entity>
-    </a-box>
+    <a-entity position="7.5 3.5 0">
+      <!-- PORTALLL -->
+      <a-cylinder position="0 0 0" scale="0.01 5 2" rotation="0 0 0" 
+        material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#BlogPortal; flatShading:false; opacity:1; transparent:true" 
+        href="http://www.nateliason.com"></a-cylinder>
+    </a-entity>
     
     <!-- For the Lessons page -->
-    <a-box position="-7.5 3 0" scale="4 5 0.2" rotation="0 -270 0" name="Page (2)" color="#FFFFFF" material="shader: flat; metalness: 0" href="http://www.nateliason.com/lessons">
-      <a-entity geometry="primitive:box" position="0 0 1" draw="width: 900; height: 300" scale=".9 .25 .1" htmltexture="asset:#Lessons"></a-entity>
-    </a-box>
+
+    <a-entity position="-7.5 2 0" rotation="0 180 0">
+      <a-box position="0 1.44 0" scale="2 1 0.2" rotation="0 -90 0" name="Page (1)" material="shader:standard; metalness:0; repeat:1 1; src:#Wood-floor" geometry="primitive:box">
+        <a-entity bmfont-text="text: Lessons; color: FFF;" position="-.2 0 .55" scale=".7 1 .7"></a-entity>
+      </a-box>
+
+      <a-cylinder position="0 0 0" scale="0.1 2 0.1" material="shader:standard; metalness:0; repeat:1 1; src:#Wood-floor" geometry="primitive:cylinder"></a-cylinder>
+
+      <a-sphere position="0 1.41 2" scale="0.5 0.5 0.5" color="#FF0000" material="shader:standard;metalness:0;color:#FF0000" href="http://www.nateliason.com/lessons/" geometry="primitive:sphere"></a-sphere>
+    </a-entity>
+    
+    <!-- Twitter -->
+    <a-sphere position="2 3 -6" scale="0.5 0.5 0.5" material="shader:standard;metalness:0;repeat:1 1;src:#Twitter" geometry="primitive:sphere" rotation="0 0 0" href="http://www.twitter.com/nateliason">
+    </a-sphere>
 
     <!-- For the Blog page -->
     <a-box position="0 3 7.5" scale="4 5 0.2" rotation="0 180 0" name="Page (3)" color="#FFFFFF" material="shader: flat; metalness: 0" href="http://www.nateliason.com/blog">
