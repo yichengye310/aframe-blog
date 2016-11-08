@@ -38,22 +38,21 @@
   
   <!-- The room for the links -->
   <a-entity position="0 0 0" name="Walkable Area">
-
+    
+    <!-- Sandy bottom -->
     <a-sphere position="0 0 0" scale="1 15 15" name="Floor" material="shader:standard;metalness:0;repeat:5 5;src:#Sand" geometry="primitive:sphere" rotation="0 0 90"></a-sphere>
 
     <!-- The welcome message -->
     <a-entity geometry="primitive:box" position="0 3.35 -7.4" draw="width: 850; height: 1100" scale="3.375 4.5 .1" htmltexture="asset:#hello"></a-entity>
     
-    <!-- for the Home page -->
+    <!-- The Home page -->
     <a-entity position="7.5 3.5 0">
       <!-- PORTALLL -->
-      <a-cylinder position="0 0 0" scale="0.01 5 2" rotation="0 0 0" 
-        material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#BlogPortal; flatShading:false; opacity:1; transparent:true" 
-        href="http://www.nateliason.com"></a-cylinder>
+      <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#BlogPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
+      href="http://www.nateliason.com"></a-cylinder>
     </a-entity>
     
-    <!-- For the Lessons page -->
-
+    <!-- The Lessons page -->
     <a-entity position="-7.5 2 0" rotation="0 180 0">
       <a-box position="0 1.44 0" scale="2 1 0.2" rotation="0 -90 0" name="Page (1)" material="shader:standard; metalness:0; repeat:1 1; src:#Wood-floor" geometry="primitive:box">
         <a-entity bmfont-text="text: Lessons; color: FFF;" position="-.2 0 .55" scale=".7 1 .7"></a-entity>
@@ -65,7 +64,10 @@
     </a-entity>
     
     <!-- Twitter -->
-    <a-sphere position="2 3 -6" scale="0.5 0.5 0.5" material="shader:standard;metalness:0;repeat:1 1;src:#Twitter" geometry="primitive:sphere" rotation="0 0 0" href="http://www.twitter.com/nateliason">
+    <a-sphere position="2 3 -6" scale="0.5 0.5 0.5" rotation="0 -45 0" 
+      material="shader:standard;metalness:0;repeat:1 1;src:#Twitter" 
+      geometry="primitive:sphere" 
+      href="http://www.twitter.com/nateliason">
     </a-sphere>
 
     <!-- For the Blog page -->
