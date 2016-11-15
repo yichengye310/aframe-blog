@@ -7,6 +7,7 @@
 
     <%= image_tag("sky1.jpg", :id => "sky") %>
     <%= image_tag("Sand001.jpg", :id => "Sand") %>
+    <%= image_tag("HomePortal.png", :id => "Home-Portal") %>
   </a-assets>
   
   <!-- Adding a camera that can "click" -->
@@ -40,6 +41,15 @@
     <a-box id="downButton" scale="3.75 2 .1" position="0 2 -2.45" material="opacity:0;" geometry="primitive:box"></a-box>
     <!-- Move up box -->
     <a-box id="upButton" scale="3.75 2 0.1" position="0 7 -2.45" material="opacity:0;" geometry="primitive:box"></a-box>
+
+    <!-- Portal Home -->
+    <a-entity position="0 3.5 5" rotation="0 90 0">
+      <!-- Floating text -->
+      <a-entity bmfont-text="text:Home; color:FFF;" position="0 2.3 .35" scale="1.5 1.5 0.1" rotation="0 90 0"></a-entity>
+      <!-- Portal -->
+      <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#Home-Portal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
+      href="/"></a-cylinder>
+    </a-entity>
     
   </a-entity>
 

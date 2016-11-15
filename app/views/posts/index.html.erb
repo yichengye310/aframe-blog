@@ -22,7 +22,7 @@
   <a-entity camera
     universal-controls="movementControls: checkpoint"
     checkpoint-controls="mode: animate"
-    position="2 2 0">
+    position="2 4 0">
     <a-ring radius-outer="0.03" radius-inner="0.02"
       position="0 0 -1"
       material="color: cyan; shader: flat"
@@ -100,7 +100,7 @@
     src="<%= post.image %>"></a-image>
     
     <!-- The Article -->
-    <a-entity name="article <%=post.id%>" geometry="primitive:box" position="<%= x_value %> 3 <%= z_value %>" draw="width: 800; height: 400" scale="4 2 .1" htmltexture="<%= target_asset %>" href="<%= post.url %>"></a-entity>
+    <a-entity name="article <%=post.id%>" geometry="primitive:box" position="<%= x_value %> 3 <%= z_value %>" draw="width: 800; height: 400" scale="4 2 .1" htmltexture="<%= target_asset %>" href="/posts/<%= post.id %>"></a-entity>
     <% post_count += 1 %>
   <% end %>
   
