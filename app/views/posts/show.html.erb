@@ -31,7 +31,7 @@
     <a-sphere position="0 0 0" scale="1 15 15" name="Floor" material="shader:standard;metalness:0;repeat:5 5;src:#Sand" geometry="primitive:sphere" rotation="0 0 90"></a-sphere>
 
     <!-- The Article -->
-    <a-entity id="articleDisplay" geometry="primitive:box" position="0 <%= ((pCount/2) - 6) * -1 %> -2.5" draw="width: 850; height: 11712" scale="3.375 <%= pCount %> .1" htmltexture="asset:#article"></a-entity>
+    <a-entity id="articleDisplay" geometry="primitive:box" position="0 <%= ((pCount/2) - 6) * -1 %> -2.5" draw="width: 850; height: <%= pCount * 244 %>" scale="3.375 <%= pCount %> .1" htmltexture="asset:#article"></a-entity>
 
     <!-- The Roof -->
     <a-box position="0 8 0" scale="10 .1 10"></a-box>
