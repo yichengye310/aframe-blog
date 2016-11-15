@@ -1,8 +1,5 @@
 /* globals AFRAME, sessionStorage, THREE, URLSearchParams */
 (function () {
-  // Do not log in production.
-  var debug = window.location.protocol !== 'https:';
-  var log = debug ? console.log.bind(console) : function () {};
 
   var registerComponent = function () {
     if (typeof AFRAME === 'undefined') {
@@ -52,7 +49,7 @@
         clone.material = new THREE.MeshBasicMaterial({
             color: 0x0000ff,
             transparent: true,
-            opacity: 0 //Commented out the highlight visual function
+            opacity: 0
         });
         clone.scale.set(1.2, 1.2, 1.2);
         clone.visible = false;

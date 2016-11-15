@@ -25,15 +25,15 @@
   </a-assets>
   
   <!-- Adding a camera that can "click" -->
-  <a-entity position="0 2 0" rotation="0 0 0">
-    <a-camera id="camera" look-controls wasd-controls>
-      <!-- <a-cursor color="#4CC3D9"></a-cursor> -->
-      <a-ring radius-outer="0.03" radius-inner="0.02"
-        position="0 0 -1"
-        material="color: cyan; shader: flat"
-        cursor="maxDistance: 10; fuse: true; fuseTimeout: 3000">
-      </a-ring>
-    </a-camera>
+  <a-entity camera
+    universal-controls="movementControls: checkpoint"
+    checkpoint-controls="mode: animate"
+    position="0 4 0">
+    <a-ring radius-outer="0.03" radius-inner="0.02"
+      position="0 0 -1"
+      material="color: cyan; shader: flat"
+      cursor="fuse: true; fuseTimeout: 500">
+    </a-ring>
   </a-entity>
   
   <!-- The room for the links -->
@@ -73,7 +73,7 @@
     </a-sphere>
 
     <!-- For the Blog page -->
-    <a-box position="0 3 7.5" scale="4 5 0.2" rotation="0 180 0" name="Page (3)" color="#FFFFFF" material="shader: flat; metalness: 0" href="http://www.nateliason.com/blog">
+    <a-box position="0 3 7.5" scale="4 5 0.2" rotation="0 180 0" name="Page (3)" color="#FFFFFF" material="shader: flat; metalness: 0" href="/posts/">
       <a-entity geometry="primitive:box" position="0 0 1" draw="width: 900; height: 300" scale=".9 .25 .1" htmltexture="asset:#Blog"></a-entity>
     </a-box>
 
