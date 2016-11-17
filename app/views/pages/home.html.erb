@@ -3,10 +3,11 @@
   <a-assets>
     <div id="hello">
       <h2>Welcome!</h2> 
-      <p>If this is your first time here, this is an experiment in VR Blogging, and one of the first blog home pages re-created in VR.</p> 
-      <p>To go to any link, just look at the orb next to it, or look in the portal. Look at that Twitter orb to find me on Twitter.</p> 
-      <p>For now, this just links to the main parts of my site. The blog, the book lessons, the newsletter, and the homepage. But check back in the future as I have a lot of ideas for how it can be expanded :)</p> 
-      <p>- Nat</p>
+      <p>If this is your first time here, this is an experiment in VR Blogging, and one of the first blogs re-created in VR.</p> 
+      <p>To go to any part of the site, just look in the portal. Look to your left or right to see the portals if you haven't already</p>
+      <p>Once you're in the Lessons or Articles hallway, look at the images or book titles to visit those pages</p> 
+      <p>Be sure to check back in the future as I have a lot of ideas for how it can be expanded :)</p> 
+      <p>- Nat (@nateliason)</p>
     </div>
     <div id="Home" style="opacity: 0;">
       <h2 style="text-align: center; font-size: 72px;">Visit Nateliason.com</h2>
@@ -22,6 +23,7 @@
     <%= image_tag("Sand001.jpg", :id => "Sand") %>
     <%= image_tag("twitter4.jpg", :id => "Twitter") %>
     <%= image_tag("BlogPortal.png", :id => "BlogPortal") %>
+    <%= image_tag("ArticlesPortal.png", :id => "ArticlesPortal") %>
   </a-assets>
   
   <!-- Adding a camera that can "click" -->
@@ -32,7 +34,7 @@
     <a-ring radius-outer="0.03" radius-inner="0.02"
       position="0 0 -1"
       material="color: cyan; shader: flat"
-      cursor="fuse: true; fuseTimeout: 500">
+      cursor="fuse: true; fuseTimeout: 3000">
     </a-ring>
   </a-entity>
   
@@ -42,11 +44,11 @@
     <!-- Sandy bottom -->
     <a-sphere position="0 0 0" scale="1 15 15" name="Floor" material="shader:standard;metalness:0;repeat:5 5;src:#Sand" geometry="primitive:sphere" rotation="0 0 90"></a-sphere>
 
-    <!-- The welcome message -->
-    <a-entity geometry="primitive:box" position="0 3.35 -7.4" draw="width: 850; height: 1100" scale="3.375 4.5 .1" htmltexture="asset:#hello"></a-entity>
+    <!-- The Welcome message -->
+    <a-entity geometry="primitive:box" position="0 3.35 -4" draw="width: 850; height: 1100" scale="3.375 4.5 .1" htmltexture="asset:#hello"></a-entity>
     
     <!-- The Home page -->
-    <a-entity position="7.5 3.5 0">
+    <a-entity position="4 3.5 0">
       <!-- Floating text -->
       <a-entity bmfont-text="text:Site Home; color:FFF" position="0 2.3 -0.7" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
       <!-- PORTALLL -->
@@ -54,8 +56,8 @@
       href="http://www.nateliason.com"></a-cylinder>
     </a-entity>
     
-    <!-- The Lessons page -->
-    <a-entity position="-7.5 2 0" rotation="0 180 0">
+    <!-- The Lessons page 
+    <a-entity position="-2.5 2 0" rotation="0 180 0">
       <a-box position="0 1.44 0" scale="2 1 0.2" rotation="0 -90 0" name="Page (1)" material="shader:standard; metalness:0; repeat:1 1; src:#Wood-floor" geometry="primitive:box">
         <a-entity bmfont-text="text: Lessons; color: FFF;" position="-.2 0 .55" scale=".7 1 .7"></a-entity>
       </a-box>
@@ -63,19 +65,23 @@
       <a-cylinder position="0 0 0" scale="0.1 2 0.1" material="shader:standard; metalness:0; repeat:1 1; src:#Wood-floor" geometry="primitive:cylinder"></a-cylinder>
 
       <a-sphere position="0 1.41 2" scale="0.5 0.5 0.5" color="#FF0000" material="shader:standard;metalness:0;color:#FF0000" href="http://www.nateliason.com/lessons/" geometry="primitive:sphere"></a-sphere>
-    </a-entity>
+    </a-entity> -->
     
-    <!-- Twitter -->
+    <!-- Twitter
     <a-sphere position="2 3 -6" scale="0.5 0.5 0.5" rotation="0 -45 0" 
       material="shader:standard;metalness:0;repeat:1 1;src:#Twitter" 
       geometry="primitive:sphere" 
       href="http://www.twitter.com/nateliason">
-    </a-sphere>
+    </a-sphere> -->
 
-    <!-- For the Blog page -->
-    <a-box position="0 3 7.5" scale="4 5 0.2" rotation="0 180 0" name="Page (3)" color="#FFFFFF" material="shader: flat; metalness: 0" href="/posts/">
-      <a-entity geometry="primitive:box" position="0 0 1" draw="width: 900; height: 300" scale=".9 .25 .1" htmltexture="asset:#Blog"></a-entity>
-    </a-box>
+    <!-- Articles portal -->
+    <a-entity position="0 3.5 4" rotation="0 270 0">
+      <!-- Floating text -->
+      <a-entity bmfont-text="text:Blog Articles; color:FFF" position="0 2.3 -0.7" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
+      <!-- PORTALLL -->
+      <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#ArticlesPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
+      href="/posts/"></a-cylinder>
+    </a-entity>
 
   </a-entity>
 
@@ -85,4 +91,5 @@
 
   <a-light name="AmbientLight" type="ambient" color="#363942" intensity="1" position="0 2 0"></a-light>
   <a-light name="Centerlight" type="point" color="#FFFFFF" intensity=".8" position="0 10 0"></a-light>
+
 </a-scene>

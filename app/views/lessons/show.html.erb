@@ -1,0 +1,119 @@
+<a-scene>
+  <!-- Scene assets -->
+  <a-assets>
+    <div id="article">
+      <h1><%= @lesson.title %></h1>
+      <%= raw @lesson.body %>
+    </div>
+
+    <%= image_tag("HomePortal.png", :id => "Home-Portal") %>
+    <%= image_tag("WhiteMarble.jpg", :id => "Room") %>
+    <%= image_tag("ArticlesPortal.png", :id => "ArticlesPortal") %>
+    <%= image_tag("MilkyWay.jpg", :id => "Milky-Way") %>
+  </a-assets>
+  
+  <!-- Adding a camera that can "click" -->
+  <a-entity camera
+    universal-controls="movementControls: checkpoint"
+    checkpoint-controls="mode: animate"
+    position="0 4 0">
+    <a-ring radius-outer="0.03" radius-inner="0.02"
+      position="0 0 -1"
+      material="color: cyan; shader: flat"
+      cursor="fuse: true; fuseTimeout: 500">
+    </a-ring>
+  </a-entity>
+  
+  <% fullText = @lesson.body %>
+  <% pCount = fullText.scan("</p>").count %>
+
+  <!-- The room for the links -->
+  <a-entity position="0 0 0" name="Walkable Area">
+    
+    <!-- The Floor -->
+    <a-box position="0 0 0" scale="10 .1 10" material="shader:standard; metalness:0; repeat:2 2; src:#Room" geometry="primitive:box"></a-box>
+
+    <!-- The Article -->
+    <a-entity id="articleDisplay" geometry="primitive:box" position="0 <%= ((pCount/2) - 6) * -1 %> -2.5" draw="width: 850; height: <%= pCount * 244 %>" scale="3.375 <%= pCount %> .1" htmltexture="asset:#article"></a-entity>
+
+    <!-- The Roof -->
+    <a-box position="0 8 0" scale="10 .1 10" material="shader:standard; metalness:0; repeat:2 2; src:#Room" geometry="primitive:box"></a-box>
+
+    <!-- The columns -->
+    <a-cylinder position="4.5 4 4.5" scale="0.3 8 0.3" 
+    material="shader:standard;metalness:0;repeat:1 1;src:#Room" 
+    geometry="primitive:cylinder"></a-cylinder>
+    <a-cylinder position="-4.5 4 4.5" scale="0.3 8 0.3" 
+    material="shader:standard;metalness:0;repeat:1 1;src:#Room" 
+    geometry="primitive:cylinder"></a-cylinder>
+    <a-cylinder position="-4.5 4 -4.5" scale="0.3 8 0.3" 
+    material="shader:standard;metalness:0;repeat:1 1;src:#Room" 
+    geometry="primitive:cylinder"></a-cylinder>
+    <a-cylinder position="4.5 4 -4.5" scale="0.3 8 0.3" 
+    material="shader:standard;metalness:0;repeat:1 1;src:#Room" 
+    geometry="primitive:cylinder"></a-cylinder>
+
+    <!-- Move down box -->
+    <a-box id="downButton" scale="3.75 2 .1" position="0 2 -2.45" material="opacity:0;" geometry="primitive:box"></a-box>
+    <!-- Move up box -->
+    <a-box id="upButton" scale="3.75 2 0.1" position="0 7 -2.45" material="opacity:0;" geometry="primitive:box"></a-box>
+
+    <!-- Portal Home -->
+    <a-entity position="0 3.5 5" rotation="0 90 0">
+      <!-- Floating text -->
+      <a-entity bmfont-text="text:Home; color:FFF;" position="0 2.3 .35" scale="1.5 1.5 0.1" rotation="0 90 0"></a-entity>
+      <!-- Portal -->
+      <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#Home-Portal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
+      href="/"></a-cylinder>
+    </a-entity>
+
+    <!-- Articles Portal -->
+    <a-entity position="5 3.5 0" rotation="0 0 0">
+      <!-- Floating text -->
+      <a-entity bmfont-text="text:Back to Articles; color:FFF" position="0 2.3 -1.14" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
+      <!-- PORTALLL -->
+      <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#ArticlesPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
+      href="/lessons/"></a-cylinder>
+    </a-entity>
+    
+  </a-entity>
+
+  <!--<a-ocean width="200" depth="200" density="40" opacity="1" position="0 -0.4 0"></a-ocean>-->
+
+  <a-sky src="#Milky-Way" position="0 0 0" scale="10 10 10"></a-sky>
+
+  <a-light name="AmbientLight" type="ambient" color="#363942" intensity="1" position="0 2 0"></a-light>
+  <a-light name="Centerlight" type="point" color="#FFFFFF" intensity=".8" position="0 6.76 0" light="type:point;color:#FFFFFF;intensity:.8"></a-light>
+</a-scene>
+
+
+<script>
+function moveText(amount){
+  target = document.querySelector("#articleDisplay");
+  targetPosition = target.getAttribute("position");
+  stepCount = 0
+  var id = setInterval(frame, 5);
+  function frame(){
+    if (stepCount == 100) {
+        clearInterval(id);
+    } else {
+        stepCount++; 
+        target.setAttribute('position',{
+          x: targetPosition.x,
+          y: targetPosition.y + (amount/100 * stepCount),
+          z: targetPosition.z
+        });
+    };
+  };
+}
+
+window.onload = function() {
+  document.getElementById("downButton").addEventListener("mouseenter", function() {
+    moveText(2);
+  });
+  document.getElementById("upButton").addEventListener("mouseenter", function() {
+    moveText(-2);
+  });
+};
+
+</script>
