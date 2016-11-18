@@ -3,9 +3,12 @@
 <head>
   <title>VR Nat Blog</title>
   <meta name="description" content="A project to put www.nateliason.com in VR">
+  <%= favicon_link_tag "Favicon.png" %>
   <!-- <meta charset="utf-8"> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <!-- All the A-Frame includes-->
   <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
   <%= javascript_include_tag "aframe-hyperlinks" %>
   <%= csrf_meta_tags %>
