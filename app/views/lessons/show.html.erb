@@ -3,13 +3,20 @@
   <a-assets>
     <div id="article">
       <h1><%= @lesson.title %></h1>
-      <%= raw @lesson.body %>
+      <% body = @lesson.body %>
+      <% body = body.gsub("i0.wp.com/",'') %>
+      <% body = body.gsub("i1.wp.com/",'') %>
+      <% body = body.gsub("i2.wp.com/",'') %>
+      <% body = body.gsub("Read more on Amazon</a>.",'</a>') %>
+      <% body = body.gsub("Get the full index of lessons here</a>.",'</a>') %>
+      <%= raw body %>
     </div>
 
     <%= image_tag("HomePortal.png", :id => "Home-Portal") %>
     <%= image_tag("WhiteMarble.jpg", :id => "Room") %>
     <%= image_tag("ArticlesPortal.png", :id => "ArticlesPortal") %>
     <%= image_tag("MilkyWay.jpg", :id => "Milky-Way") %>
+    <%= image_tag("BlogPortal.png", :id => "BlogPortal") %>
   </a-assets>
   
   <!-- Adding a camera that can "click" -->
@@ -75,6 +82,15 @@
       <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#ArticlesPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
       href="/lessons/"></a-cylinder>
     </a-entity>
+
+    <!-- 2D Portal -->
+    <a-entity position="-5 3.5 0" rotation="0 180 0">
+      <!-- Floating text -->
+      <a-entity bmfont-text="text:View in 2D; color:FFF" position="0 2.3 -0.72" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
+      <!-- PORTALLL -->
+      <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#BlogPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
+      href="<%= @lesson.url %>"></a-cylinder>
+    </a-entity>
     
   </a-entity>
 
@@ -88,25 +104,6 @@
 
 
 <script>
-function moveText(amount){
-  target = document.querySelector("#articleDisplay");
-  targetPosition = target.getAttribute("position");
-  stepCount = 0
-  var id = setInterval(frame, 5);
-  function frame(){
-    if (stepCount == 100) {
-        clearInterval(id);
-    } else {
-        stepCount++; 
-        target.setAttribute('position',{
-          x: targetPosition.x,
-          y: targetPosition.y + (amount/100 * stepCount),
-          z: targetPosition.z
-        });
-    };
-  };
-}
-
 window.onload = function() {
   document.getElementById("downButton").addEventListener("mouseenter", function() {
     moveText(2);

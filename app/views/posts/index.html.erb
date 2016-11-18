@@ -32,8 +32,8 @@
 
   <!-- The room for the links -->
   <% count = @posts.count %>
-  <% length = (((count+1)/2+1) * 5) %>
-  <% width = 16 %>
+  <% length = (((count+1)/2+1) * 5).to_f %>
+  <% width = 16.0 %>
 
   <a-entity position="<%= length/2 %> 0 0" name="Walkable Area">
     <!-- Portals back home -->
@@ -108,6 +108,8 @@
   <% cylinderPos = 10 %>
   <% while cylinderPos < length do %>
     <a-cylinder checkpoint radius="1" height="0.1" position="<%= cylinderPos %> 0.6 0" color="#00b6fe"></a-cylinder>
+    <a-entity bmfont-text="text:Look at Pictures to Read Articles;color:#000" position="<%= cylinderPos - 2.36 %> 8.3 -6.8" scale="1.5 1.5 0.1" rotation="28 0 0"></a-entity>
+    <a-entity bmfont-text="text:Look at Pictures to Read Articles;color:#000" position="<%= cylinderPos + 2.36 %> 8.3 6.8" scale="1.5 1.5 0.1" rotation="28 180 0"></a-entity>
     <% cylinderPos += 10 %>
   <% end %>
 

@@ -14,17 +14,22 @@
  *= require_self
  */
 
+$black-text: #000000;
+$dark-background: #111111;
+$light-text: #D3D3D3;
+
 body{
   font-family: 'open sans', sans-serif;
   font-size: 30px;
+  color: $black-text;
 }
-h1 {
-  margin-left: 18px;
-}
-h2 {
-  margin-left: 18px;
-}
-p {
+
+h1, h2, h3, p {
   margin-left: 18px;
   margin-right: 18px;
+}
+
+a {
+	text-decoration: none;
+	color: $black-text;
 }
