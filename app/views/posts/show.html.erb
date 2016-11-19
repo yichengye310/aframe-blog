@@ -40,7 +40,10 @@
     <a-box position="0 0 0" scale="10 .1 10" material="shader:standard; metalness:0; repeat:2 2; src:#Room" geometry="primitive:box"></a-box>
 
     <!-- The Article -->
-    <a-entity id="articleDisplay" geometry="primitive:box" position="0 <%= ((pCount/2) - 6) * -1 %> -2.5" draw="width: 850; height: <%= pCount * 268 %>" scale="3.375 <%= pCount * 1.1 %> .1" htmltexture="asset:#article"></a-entity>
+    <a-entity id="articleDisplay" geometry="primitive:box" position="0 <%= ((pCount/2)-24) * -1 %> -2.5" draw="width: 1440; height: <%= pCount * 200 %>" scale="3.375 <%= pCount * 0.5 %> .1" htmltexture="asset:#article"></a-entity>
+
+    <!-- Widescreen version 
+    <a-entity id="articleDisplay" geometry="primitive:box" position="0 <%= ((pCount/2)-24) * -1 %> -2.5" draw="width: 1920; height: <%= pCount * 180 %>" scale="3.375 <%= pCount * 0.4 %> .1" htmltexture="asset:#article"></a-entity> -->
 
     <!-- The Roof -->
     <a-box position="0 8 0" scale="10 .1 10" material="shader:standard; metalness:0; repeat:2 2; src:#Room" geometry="primitive:box"></a-box>
