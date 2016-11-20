@@ -24,6 +24,7 @@
     <%= image_tag("twitter4.jpg", :id => "Twitter") %>
     <%= image_tag("BlogPortal.png", :id => "BlogPortal") %>
     <%= image_tag("ArticlesPortal.png", :id => "ArticlesPortal") %>
+    <%= image_tag("LessonsPortal.png", :id => "LessonsPortal") %>
   </a-assets>
   
   <!-- Adding a camera that can "click" -->
@@ -47,7 +48,7 @@
     <!-- The Welcome message -->
     <a-entity geometry="primitive:box" position="0 3.35 -4" draw="width: 850; height: 1100" scale="3.375 4.5 .1" htmltexture="asset:#hello"></a-entity>
     
-    <!-- The Home page -->
+    <!-- The Home Portal -->
     <a-entity position="4 3.5 0">
       <!-- Floating text -->
       <a-entity bmfont-text="text:Site Home; color:FFF" position="0 2.3 -0.7" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
@@ -55,24 +56,6 @@
       <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#BlogPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
       href="http://www.nateliason.com"></a-cylinder>
     </a-entity>
-    
-    <!-- The Lessons page 
-    <a-entity position="-2.5 2 0" rotation="0 180 0">
-      <a-box position="0 1.44 0" scale="2 1 0.2" rotation="0 -90 0" name="Page (1)" material="shader:standard; metalness:0; repeat:1 1; src:#Wood-floor" geometry="primitive:box">
-        <a-entity bmfont-text="text: Lessons; color: FFF;" position="-.2 0 .55" scale=".7 1 .7"></a-entity>
-      </a-box>
-
-      <a-cylinder position="0 0 0" scale="0.1 2 0.1" material="shader:standard; metalness:0; repeat:1 1; src:#Wood-floor" geometry="primitive:cylinder"></a-cylinder>
-
-      <a-sphere position="0 1.41 2" scale="0.5 0.5 0.5" color="#FF0000" material="shader:standard;metalness:0;color:#FF0000" href="http://www.nateliason.com/lessons/" geometry="primitive:sphere"></a-sphere>
-    </a-entity> -->
-    
-    <!-- Twitter
-    <a-sphere position="2 3 -6" scale="0.5 0.5 0.5" rotation="0 -45 0" 
-      material="shader:standard;metalness:0;repeat:1 1;src:#Twitter" 
-      geometry="primitive:sphere" 
-      href="http://www.twitter.com/nateliason">
-    </a-sphere> -->
 
     <!-- Articles portal -->
     <a-entity position="0 3.5 4" rotation="0 270 0">
@@ -81,6 +64,14 @@
       <!-- PORTAL -->
       <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#ArticlesPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
       href="/posts/"></a-cylinder>
+    </a-entity>
+
+    <!-- Lessons portal -->
+    <a-entity position="-4 3.5 0" rotation="0 180 0">
+      <!-- Floating text -->
+      <a-entity bmfont-text="text:Book Lessons; color:FFF" position="0 2.3 -0.9" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
+      <!-- PORTAL -->
+      <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#LessonsPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" href="/lessons/" geometry=""></a-cylinder>
     </a-entity>
 
   </a-entity>
