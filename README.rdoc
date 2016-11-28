@@ -1,9 +1,0 @@
-TODO
-
-* Set it so that only I can add docs
-* Add images to hallway view
-* View for the post show page
-* Zapier hook for adding new articles
-* Lessons hall
-* Show page for lessons
-* Orbs that follow the user for going back to places?
