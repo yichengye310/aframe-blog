@@ -9,19 +9,8 @@
       <p>Again, this is an experiment, and many things are broken. Feel free to let me know on Twitter if you have ideas on how to improve it.</p>
       <p>- Nat (@nateliason)</p>
     </div>
-    <div id="Home" style="opacity: 0;">
-      <h2 style="text-align: center; font-size: 72px;">Visit Nateliason.com</h2>
-    </div>
-    <h2 id="Lessons" style="text-align: center">Visit The Book Lessons</h2>
-    <div id="Blog">
-      <h2 style="text-align: center">Visit The Blog</h2>
-    </div>
-    <%= image_tag("Brick001.jpg", :id => "Brick-floor") %>
-    <%= image_tag("WoodFloor002.jpg", :id =>"Wood-floor") %>
-    <%= image_tag("Stone001.jpg", :id => "Stone-wall") %>
     <%= image_tag("sky1.jpg", :id => "sky") %>
     <%= image_tag("Sand001.jpg", :id => "Sand") %>
-    <%= image_tag("twitter4.jpg", :id => "Twitter") %>
     <%= image_tag("BlogPortal.png", :id => "BlogPortal") %>
     <%= image_tag("ArticlesPortal.png", :id => "ArticlesPortal") %>
     <%= image_tag("LessonsPortal.png", :id => "LessonsPortal") %>
@@ -52,7 +41,7 @@
     <a-entity position="4 3.5 0">
       <!-- Floating text -->
       <a-entity bmfont-text="text:Site Home; color:FFF" position="0 2.3 -0.7" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
-      <!-- PORTALLL -->
+      <!-- Portal -->
       <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#BlogPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
       href="http://www.nateliason.com"></a-cylinder>
     </a-entity>
@@ -61,7 +50,7 @@
     <a-entity position="0 3.5 4" rotation="0 270 0">
       <!-- Floating text -->
       <a-entity bmfont-text="text:Blog Articles; color:FFF" position="0 2.3 -0.9" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
-      <!-- PORTAL -->
+      <!-- Portal -->
       <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#ArticlesPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
       href="/posts/"></a-cylinder>
     </a-entity>
@@ -70,7 +59,7 @@
     <a-entity position="-4 3.5 0" rotation="0 180 0">
       <!-- Floating text -->
       <a-entity bmfont-text="text:Book Lessons; color:FFF" position="0 2.3 -0.9" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
-      <!-- PORTAL -->
+      <!-- Portal -->
       <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#LessonsPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" href="/lessons/" geometry=""></a-cylinder>
     </a-entity>
 

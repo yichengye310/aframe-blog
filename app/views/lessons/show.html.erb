@@ -14,7 +14,7 @@
 
     <%= image_tag("HomePortal.png", :id => "Home-Portal") %>
     <%= image_tag("WhiteMarble.jpg", :id => "Room") %>
-    <%= image_tag("ArticlesPortal.png", :id => "ArticlesPortal") %>
+    <%= image_tag("LessonsPortal.png", :id => "LessonsPortal") %>
     <%= image_tag("MilkyWay.jpg", :id => "Milky-Way") %>
     <%= image_tag("BlogPortal.png", :id => "BlogPortal") %>
   </a-assets>
@@ -41,7 +41,9 @@
     <a-box position="0 0 0" scale="10 .1 10" material="shader:standard; metalness:0; repeat:2 2; src:#Room" geometry="primitive:box"></a-box>
 
     <!-- The Article -->
-    <a-entity id="articleDisplay" geometry="primitive:box" position="0 <%= ((pCount/2) - 6) * -1 %> -2.5" draw="width: 850; height: <%= pCount * 244 %>" scale="3.375 <%= pCount %> .1" htmltexture="asset:#article"></a-entity>
+    <a-entity position = "0 6 -4">
+      <a-entity id="articleDisplay" geometry="primitive:box" position="0 <%= ((pCount/4) * -1) %> 0" draw="width: 1440; height: <%= pCount * 220 %>" scale="3.375 <%= pCount * 0.5 %> .1" htmltexture="asset:#article"></a-entity>
+    </a-entity>
 
     <!-- The Roof -->
     <a-box position="0 8 0" scale="10 .1 10" material="shader:standard; metalness:0; repeat:2 2; src:#Room" geometry="primitive:box"></a-box>
@@ -77,9 +79,9 @@
     <!-- Articles Portal -->
     <a-entity position="5 3.5 0" rotation="0 0 0">
       <!-- Floating text -->
-      <a-entity bmfont-text="text:Back to Articles; color:FFF" position="0 2.3 -1.14" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
+      <a-entity bmfont-text="text:Back to Lessons; color:FFF" position="0 2.3 -1.14" scale="1.5 1.5 0.1" rotation="0 -90 0"></a-entity>
       <!-- PORTALLL -->
-      <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#ArticlesPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
+      <a-cylinder position="0 0 0" scale="0.01 5 1.7" rotation="0 0 0" material="shader:standard; metalness:0; roughness:1; repeat:2 1; src:#LessonsPortal; flatShading:false; opacity:1; transparent:true; side:front; visible:true; fog:true;" 
       href="/lessons/"></a-cylinder>
     </a-entity>
 

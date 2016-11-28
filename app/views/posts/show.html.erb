@@ -40,7 +40,7 @@
     <a-box position="0 0 0" scale="10 .1 10" material="shader:standard; metalness:0; repeat:2 2; src:#Room" geometry="primitive:box"></a-box>
 
     <!-- The Article -->
-    <a-entity position = "0 6 -2.5">
+    <a-entity position = "0 6 -4">
       <a-entity id="articleDisplay" geometry="primitive:box" position="0 <%= ((pCount/4) * -1) %> 0" draw="width: 1440; height: <%= pCount * 220 %>" scale="3.375 <%= pCount * 0.5 %> .1" htmltexture="asset:#article"></a-entity>
     </a-entity>
 
@@ -116,5 +116,4 @@ window.onload = function() {
     moveText(-2);
   });
 };
-
 </script>
