@@ -4,7 +4,7 @@ A project to turn [www.nateliason.com](http://www.nateliason.com) into a VR expe
 
 Built using A-Frame and Rails, importing existing blog posts and displaying them in VR environments.
 
-[View it live here](vr.nateliason.com).
+[View it live here](http://vr.nateliason.com).
 
 [More info on this project here]().  
 
