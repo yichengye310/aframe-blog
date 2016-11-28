@@ -6,7 +6,7 @@ Built using A-Frame and Rails, importing existing blog posts and displaying them
 
 [View it live here](http://vr.nateliason.com).
 
-[More info on this project here]().  
+[More info on this project here](http://www.nateliason.com/vr-blog/).  
 
 ## Any Suggestions?
 
