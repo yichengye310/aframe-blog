@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    @post.save
+    # @post.save
       # @page = MetaInspector.new(@post.url)
       # doc = Nokogiri::HTML(@page.to_s)
 
