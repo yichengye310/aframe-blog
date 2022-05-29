@@ -20,22 +20,21 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    if @post.save
-      @page = MetaInspector.new(@post.url)
-      doc = Nokogiri::HTML(@page.to_s)
+    @post.save
+      # @page = MetaInspector.new(@post.url)
+      # doc = Nokogiri::HTML(@page.to_s)
 
-      @post.title = @page.title
-      @post.excerpt = @page.description
-      @post.image = @page.images.best
-      @post.category = @page.meta_tag['property']['article:section']
+      # @post.title = @page.title
+      # @post.excerpt = @page.description
+      # @post.image = @page.images.best
+      # @post.category = @page.meta_tag['property']['article:section']
       
-      if @page.meta_tag['property']['article:publisher'].include? "medium"
-        @post.body = doc.css('.section-content') 
-      else
-        @post.body = doc.css('.entry-content').first
-      end
-    end
-
+      # if @page.meta_tag['property']['article:publisher'].include? "medium"
+      # @post.body = doc.css('.section-content')
+      # else
+      #   @post.body = doc.css('.entry-content').first
+      # end
+    # end
 
     respond_to do |format|
       if @post.save
@@ -74,7 +73,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :image, :url, :excerpt)
+      params.require(:post).permit(:title, :image, :url, :body, :excerpt, :category)
     end
 
     def check_user

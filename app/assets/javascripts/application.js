@@ -21,7 +21,7 @@ function moveText(amount){
   stepCount = 0
   var id = setInterval(frame, 5);
   function frame(){
-    if (stepCount == 100) {
+    if (stepCount === 100) {
         clearInterval(id);
     } else {
         stepCount++; 
