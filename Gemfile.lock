@@ -155,8 +155,8 @@ GEM
       net-pop
       net-smtp
     marcel (1.1.0)
-    metainspector (5.16.0)
-      addressable (~> 2.8.4)
+    metainspector (5.17.2)
+      addressable (~> 2.9.0)
       faraday (~> 2.5)
       faraday-cookie_jar (~> 0.0)
       faraday-encoding (~> 0.0)
@@ -172,7 +172,7 @@ GEM
     nesty (1.0.2)
     net-http (0.9.1)
       uri (>= 0.11.1)
-    net-imap (0.5.14)
+    net-imap (0.5.15)
       date
       net-protocol
     net-pop (0.1.2)
@@ -276,7 +276,7 @@ GEM
     stringio (3.2.0)
     thor (1.5.0)
     tilt (2.0.10)
-    timeout (0.4.3)
+    timeout (0.6.1)
     tsort (0.2.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
